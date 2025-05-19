@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "author": "Muthukumar Athistakumar",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-slide-potentiometer",
+      "id": "pot1",
+      "top": -100.6,
+      "left": -173.8,
+      "attrs": { "travelLength": "30" }
+    },
+    { "type": "wokwi-gas-sensor", "id": "gas1", "top": 98.7, "left": -185, "attrs": {} },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 184.8,
+      "left": -161.4,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -22.8,
+      "left": 128.6,
+      "attrs": { "color": "red" }
+    },
+    { "type": "wokwi-lcd1602", "id": "lcd1", "top": 112, "left": 140, "attrs": { "pins": "i2c" } }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "pot1:VCC", "esp:5V", "red", [ "h-38.4", "v249.6" ] ],
+    [ "pot1:SIG", "esp:34", "green", [ "h-9.6", "v104.8" ] ],
+    [ "pot1:GND", "esp:GND.2", "black", [ "v19.2", "h82" ] ],
+    [ "gas1:VCC", "esp:5V", "red", [ "h19.2", "v75.9" ] ],
+    [ "gas1:GND", "esp:GND.1", "black", [ "h38.4", "v18.4" ] ],
+    [ "bz1:2", "esp:5V", "green", [ "v-9.6", "h124.4" ] ],
+    [ "bz1:1", "esp:12", "green", [ "v-105.6", "h124.8" ] ],
+    [ "led1:C", "esp:GND.2", "green", [ "v0" ] ],
+    [ "led1:A", "esp:23", "green", [ "v0" ] ],
+    [ "lcd1:GND", "esp:GND.2", "black", [ "h-19.2", "v-124.8" ] ],
+    [ "lcd1:SDA", "esp:21", "green", [ "h-19.2", "v-86.2" ] ],
+    [ "lcd1:SCL", "esp:22", "green", [ "h-28.8", "v-124.5" ] ],
+    [ "lcd1:VCC", "esp:5V", "red", [ "h-19.2", "v76.9", "h-124.8" ] ],
+    [ "gas1:AOUT", "esp:35", "green", [ "h0", "v-38.4", "h48" ] ]
+  ],
+  "dependencies": {}
+}
